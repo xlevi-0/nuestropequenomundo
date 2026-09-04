@@ -8,7 +8,7 @@
 
 // Contraseña de acceso a la página. Déjala en "" (comillas vacías) para que
 // NO pida contraseña y se entre directamente.
-const ACCESS_CODE = "teamo";
+const ACCESS_CODE = "Ni yo me sé la contraseña";
 
 const relationshipData = {
   girlfriendName: "Mi amor",
