@@ -3,21 +3,50 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Nuestro Pequeño Mundo ♡</title>
+<title>Nuestro Pequeño Mundo</title>
 <meta name="description" content="Un pequeño mundo hecho solamente para nosotros.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 120 100%22><text y=%22.9em%22 font-size=%2290%22>💙</text></svg>">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <!-- ============================================================
+     BOTON DE REINICIO (borra todo el progreso guardado)
+============================================================ -->
+<button type="button" id="reset-progress-btn" class="reset-progress-btn"
+        title="Reiniciar progreso guardado"
+        aria-label="Reiniciar todo el progreso guardado y ver la página como la primera vez">
+  <span aria-hidden="true">⟳</span>
+</button>
+
+<!-- ============================================================
      REGION EN VIVO PARA LECTORES DE PANTALLA (logros / secretos)
 ============================================================ -->
 <div id="aria-live" class="sr-only" aria-live="polite"></div>
+
+<!-- ============================================================
+     PANTALLA DE ACCESO CON CONTRASEÑA
+     (se elimina automáticamente si ACCESS_CODE está vacío en script.js)
+============================================================ -->
+<section id="lock-screen" class="lock-screen">
+  <div class="stars-layer" aria-hidden="true"></div>
+  <div class="lock-panel pixel-panel">
+    <p class="lock-icon" aria-hidden="true">🔒</p>
+    <h1 class="lock-title">Acceso privado</h1>
+    <p class="lock-subtitle">Introduce la contraseña para entrar en nuestro mundo.</p>
+    <form id="lock-form" class="lock-form" autocomplete="off">
+      <label for="lock-input" class="sr-only">Contraseña</label>
+      <input type="password" id="lock-input" class="lock-input pixel-corners"
+             placeholder="Contraseña" autocomplete="off" required>
+      <button type="submit" class="pixel-btn pixel-btn-primary">Entrar ❤️</button>
+    </form>
+    <p class="lock-error" id="lock-error" role="alert" hidden>Contraseña incorrecta. Inténtalo de nuevo ♡</p>
+  </div>
+</section>
 
 <!-- ============================================================
      PANTALLA DE INTRODUCCION / PORTADA
@@ -155,12 +184,8 @@
 
       <div class="reason-counter" id="reason-counter">0 / 50 descubiertas</div>
 
-      <div class="reason-card pixel-panel" id="reason-card" hidden>
-        <p class="reason-card__number" id="reason-number">❤️ #01</p>
-        <p class="reason-card__text" id="reason-text"></p>
-      </div>
-
-      <div class="reason-log" id="reason-log" aria-label="Razones descubiertas"></div>
+      <p class="reason-grid-hint">O toca directamente cualquier número para leerlo:</p>
+      <div class="reason-grid" id="reason-grid" aria-label="Índice de las 50 razones"></div>
     </div>
   </section>
 
@@ -169,7 +194,7 @@
     <div class="section-inner">
       <p class="section-kicker">Capítulo 06</p>
       <h2 class="section-title">Nuestras canciones</h2>
-      <p class="section-lead">Las canciones que nos recuerdan el uno al otro</p>
+      <p class="section-lead">La banda sonora de nosotros dos.</p>
 
       <div class="player pixel-panel">
         <div class="player__screen">

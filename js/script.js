@@ -6,12 +6,16 @@
 // CONTENIDO PERSONALIZABLE
 // ==================================== */
 
+// Contraseña de acceso a la página. Déjala en "" (comillas vacías) para que
+// NO pida contraseña y se entre directamente.
+const ACCESS_CODE = "teamo";
+
 const relationshipData = {
-  girlfriendName: "Leire",
-  myName: "Faizan",
+  girlfriendName: "Mi amor",
+  myName: "Yo",
   // formato: "AAAA-MM-DD"
-  startDate: "2025-08-17",
-  anniversaryDate: "2026-08-17"
+  startDate: "2025-01-01",
+  anniversaryDate: "2026-01-01"
 };
 
 // Línea temporal de la sección "Nuestra historia".
@@ -21,39 +25,39 @@ const timeline = [
     id: "t1",
     icon: "🌱",
     title: "El comienzo",
-    date: "Mayo 2025",
-    description: "El día en que comenzó nuestra historia. Todavía como conocidos simplemente.",
+    date: "Enero 2025",
+    description: "El día en que comenzó nuestra historia. Todavía recuerdo exactamente cómo me sentí.",
     image: "timeline-comienzo.jpg"
   },
   {
     id: "t2",
     icon: "💬",
     title: "Las primeras conversaciones",
-    date: "Mayo-Junio 2025",
-    description: "Horas y horas hablando de todo y de nada.",
+    date: "Enero 2025",
+    description: "Horas y horas hablando de todo y de nada, sin darnos cuenta de que ya era de madrugada.",
     image: "timeline-conversaciones.jpg"
   },
   {
     id: "t3",
     icon: "❤️",
-    title: "Cuando supe que estaba enamorado",
-    date: "Agosto 2025",
-    description: "Ese momento exacto en el que supe que eras perfecta a mis ojos.",
+    title: "Cuando todo cambió",
+    date: "Febrero 2025",
+    description: "Ese momento exacto en el que supe que esto era diferente a todo lo demás.",
     image: "timeline-cambio.jpg"
   },
   {
     id: "t4",
     icon: "🌸",
-    title: "Un momento especial",
-    date: "Agosto 2025",
-    description: "Un recuerdo  que se quedó grabado para siempre.",
+    title: "Nuestro primer momento especial",
+    date: "Marzo 2025",
+    description: "Un recuerdo pequeño que se quedó grabado para siempre.",
     image: "timeline-especial.jpg"
   },
   {
     id: "t5",
     icon: "💋",
     title: "Nuestro primer beso",
-    date: "Agosto 2025",
+    date: "Marzo 2025",
     description: "El primero de muchísimos más.",
     image: "timeline-beso.jpg"
   },
@@ -80,7 +84,7 @@ const memories = [
   {
     id: "m1",
     icon: "🏠",
-    label: "Casa de Joseba",
+    label: "Casa",
     top: 30, left: 18,
     title: "En casa, sin hacer nada",
     date: "Todo el año",
@@ -93,39 +97,39 @@ const memories = [
     label: "Parque",
     top: 55, left: 40,
     title: "Aquella tarde en el parque",
-    date: "Verano 2025",
-    story: "Estuvimos juntos por horas, y no nos importaba lo demás.",
+    date: "Primavera 2025",
+    story: "Caminamos sin rumbo durante horas y no nos importó lo más mínimo.",
     image: "memory-parque.jpg"
   },
   {
     id: "m3",
-    icon: "🍟",
-    label: "McDonald's",
+    icon: "☕",
+    label: "Cafetería",
     top: 20, left: 62,
-    title: "McDonald's",
+    title: "Nuestra cafetería",
     date: "Varias veces",
     story: "Ese rincón que ya sentimos nuestro, con nuestra mesa de siempre.",
-    image: "memory-mcdonalds.jpg"
+    image: "memory-cafeteria.jpg"
   },
   {
     id: "m4",
-    icon: "🛟",
-    label: "Piscina",
+    icon: "🌊",
+    label: "Playa",
     top: 70, left: 68,
-    title: "El día de piscina",
-    date: "Verano 2026",
-    story: "No hemos ido mucho, pero las veces que hemos ido, me ha encantado ir contigo.",
-    image: "memory-piscina.jpg"
+    title: "El día de playa",
+    date: "Verano 2025",
+    story: "El sonido del mar de fondo mientras hablábamos de nuestro futuro.",
+    image: "memory-playa.jpg"
   },
   {
     id: "m5",
-    icon: "❗",
-    label: "La esquina de siempre",
+    icon: "🎡",
+    label: "Lugar especial",
     top: 45, left: 84,
-    title: "Nuestra esquina de siempre",
-    date: "Casi siempre que quedamos",
-    story: "Un lugar que ahora significa mucho para mí, el lugar en el que nos vemos casi siempre que quedamos.",
-    image: "memory-esquina.jpg"
+    title: "Nuestro lugar especial",
+    date: "Fecha especial",
+    story: "Un lugar que ahora significa algo distinto solo porque estuvimos ahí juntos.",
+    image: "memory-especial.jpg"
   },
   {
     id: "m6",
@@ -227,19 +231,21 @@ const letters = [
   }
 ];
 
-// Canciones — coloca los archivos en assets/audio/ (opcional).
+// Canciones — coloca el audio en assets/audio/ y las portadas en
+// assets/images/songs/ (ambas carpetas ya existen dentro del proyecto).
+// "cover" es solo el NOMBRE del archivo, no la ruta completa.
 const songs = [
   {
-    title: "TUS VUELTAS + CARENCIAS DE CORDURA",
-    artist: "Milo J, Santino, Yami Safdie",
-    cover: "c:\Users\Faizan\Downloads\nuestro-pequeno-mundo\nuestro-pequeno-mundo\assets\audio\cover1.jpg",
-    audio: "cancion1.mp3",
-    description: "Esta es nuestra canción, amor."
+    title: "Nuestra canción",
+    artist: "Reemplázame",
+    cover: "song-1.jpg",
+    audio: "song-1.mp3",
+    description: "Elegí esta canción porque fue la que sonaba la primera vez que hablamos de verdad."
   },
   {
     title: "La de los recuerdos",
     artist: "Reemplázame",
-    cover: "nuestro-pequeno-mundo/assets/audio/cover1.jpg/",
+    cover: "song-2.jpg",
     audio: "song-2.mp3",
     description: "Esta me recuerda a ese viaje en coche donde la cantamos sin parar."
   },
@@ -306,21 +312,27 @@ const secrets = [
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) throw new Error("no-state");
       const parsed = JSON.parse(raw);
-      return Object.assign({
+      const base = Object.assign({
         secretsFound: [],
         achievementsUnlocked: [],
         memoriesVisited: [],
         lettersOpened: [],
-        reasonsRevealed: 0,
+        revealedReasons: [],
         songsPlayed: []
       }, parsed);
+      // migración desde una versión anterior que guardaba un simple contador
+      if (typeof parsed.reasonsRevealed === "number" && !Array.isArray(parsed.revealedReasons)) {
+        base.revealedReasons = Array.from({ length: parsed.reasonsRevealed }, (_, i) => i);
+      }
+      delete base.reasonsRevealed;
+      return base;
     } catch (e) {
       return {
         secretsFound: [],
         achievementsUnlocked: [],
         memoriesVisited: [],
         lettersOpened: [],
-        reasonsRevealed: 0,
+        revealedReasons: [],
         songsPlayed: []
       };
     }
@@ -487,6 +499,80 @@ const secrets = [
         }
       });
     }
+  }
+
+  /* ------------------------------------------------------------------
+     BOTON DE REINICIO
+  ------------------------------------------------------------------ */
+  function initResetButton() {
+    const resetBtn = document.getElementById("reset-progress-btn");
+    if (!resetBtn) return;
+
+    resetBtn.addEventListener("click", () => {
+      const sure = window.confirm(
+        "¿Seguro que quieres reiniciar todo el progreso guardado?\n\n" +
+        "Se borrarán los logros, secretos, cartas abiertas, razones descubiertas y, " +
+        "si hay contraseña, se volverá a pedir. La página se verá como la primera vez."
+      );
+      if (!sure) return;
+      try {
+        localStorage.removeItem(STORAGE_KEY);
+        localStorage.removeItem(LOCK_STORAGE_KEY);
+      } catch (e) {
+        /* almacenamiento no disponible: no hay nada que borrar */
+      }
+      location.reload();
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     PANTALLA DE CONTRASEÑA
+  ------------------------------------------------------------------ */
+  const LOCK_STORAGE_KEY = "nuestroPequenoMundo_unlocked";
+
+  function initLockScreen() {
+    const lockScreen = document.getElementById("lock-screen");
+    if (!lockScreen) return;
+
+    // si no se ha definido contraseña, no se pide nada
+    if (!ACCESS_CODE || !ACCESS_CODE.trim()) {
+      lockScreen.remove();
+      return;
+    }
+
+    // si ya se desbloqueó antes en este navegador, no se vuelve a pedir
+    let alreadyUnlocked = false;
+    try { alreadyUnlocked = localStorage.getItem(LOCK_STORAGE_KEY) === "true"; } catch (e) { /* noop */ }
+    if (alreadyUnlocked) {
+      lockScreen.remove();
+      return;
+    }
+
+    document.body.classList.add("no-scroll");
+    const form = document.getElementById("lock-form");
+    const input = document.getElementById("lock-input");
+    const error = document.getElementById("lock-error");
+
+    setTimeout(() => input.focus(), 100);
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const guess = input.value.trim().toLowerCase();
+      const answer = ACCESS_CODE.trim().toLowerCase();
+
+      if (guess === answer) {
+        try { localStorage.setItem(LOCK_STORAGE_KEY, "true"); } catch (err) { /* noop */ }
+        lockScreen.classList.add("is-hidden");
+        setTimeout(() => lockScreen.remove(), 500);
+      } else {
+        error.hidden = false;
+        input.value = "";
+        input.focus();
+        lockScreen.classList.remove("shake");
+        void lockScreen.offsetWidth;
+        lockScreen.classList.add("shake");
+      }
+    });
   }
 
   /* ------------------------------------------------------------------
@@ -675,27 +761,55 @@ const secrets = [
   ------------------------------------------------------------------ */
   function renderReasonsProgress() {
     document.getElementById("reason-counter").textContent =
-      `${state.reasonsRevealed} / ${reasons.length} descubiertas`;
+      `${state.revealedReasons.length} / ${reasons.length} descubiertas`;
+  }
+
+  // Revela (o vuelve a mostrar) la razón de ese índice en un modal.
+  // Se usa tanto desde el botón de corazón como desde la rejilla de números.
+  function revealReason(index) {
+    const isNew = !state.revealedReasons.includes(index);
+    if (isNew) {
+      state.revealedReasons.push(index);
+      saveState();
+      renderReasonsProgress();
+      const gridButtons = document.querySelectorAll(".reason-grid__btn");
+      if (gridButtons[index]) gridButtons[index].classList.add("is-revealed");
+    }
+
+    openModal(`
+      <p class="modal-eyebrow">❤️ #${String(index + 1).padStart(2, "0")}</p>
+      <h3>Una razón para quererte</h3>
+      <p>${reasons[index]}</p>
+    `);
+
+    if (isNew && state.revealedReasons.length >= reasons.length) {
+      unlockAchievement("a-corazon");
+      setTimeout(() => {
+        openModal(`
+          <p class="modal-eyebrow">50 / 50</p>
+          <h3>Has descubierto las 50 cosas... ✨</h3>
+          <p>Y esta lista, en realidad, nunca termina de verdad.</p>
+        `);
+      }, 900);
+    }
   }
 
   function initReasons() {
     renderReasonsProgress();
-    const btn = document.getElementById("reveal-heart-btn");
-    const card = document.getElementById("reason-card");
-    const numberEl = document.getElementById("reason-number");
-    const textEl = document.getElementById("reason-text");
-    const log = document.getElementById("reason-log");
 
-    // repone las razones ya vistas en el registro visual
-    for (let i = 0; i < state.reasonsRevealed; i++) {
-      const chip = document.createElement("span");
-      chip.className = "reason-log__chip";
-      chip.textContent = "#" + String(i + 1).padStart(2, "0");
-      log.appendChild(chip);
-    }
+    const grid = document.getElementById("reason-grid");
+    reasons.forEach((_, index) => {
+      const gridBtn = document.createElement("button");
+      gridBtn.type = "button";
+      gridBtn.className = "reason-grid__btn" + (state.revealedReasons.includes(index) ? " is-revealed" : "");
+      gridBtn.textContent = String(index + 1).padStart(2, "0");
+      gridBtn.setAttribute("aria-label", `Ver la razón número ${index + 1}`);
+      gridBtn.addEventListener("click", () => revealReason(index));
+      grid.appendChild(gridBtn);
+    });
 
-    btn.addEventListener("click", () => {
-      if (state.reasonsRevealed >= reasons.length) {
+    document.getElementById("reveal-heart-btn").addEventListener("click", () => {
+      if (state.revealedReasons.length >= reasons.length) {
         openModal(`
           <p class="modal-eyebrow">50 / 50</p>
           <h3>Has descubierto las 50 cosas ✨</h3>
@@ -703,34 +817,9 @@ const secrets = [
         `);
         return;
       }
-      const index = state.reasonsRevealed;
-      const reason = reasons[index];
-      numberEl.textContent = `❤️ #${String(index + 1).padStart(2, "0")}`;
-      textEl.textContent = reason;
-      card.hidden = false;
-      card.classList.remove("reason-card");
-      void card.offsetWidth; // reinicia animación
-      card.classList.add("reason-card");
-
-      const chip = document.createElement("span");
-      chip.className = "reason-log__chip";
-      chip.textContent = "#" + String(index + 1).padStart(2, "0");
-      log.appendChild(chip);
-
-      state.reasonsRevealed += 1;
-      saveState();
-      renderReasonsProgress();
-
-      if (state.reasonsRevealed >= reasons.length) {
-        unlockAchievement("a-corazon");
-        setTimeout(() => {
-          openModal(`
-            <p class="modal-eyebrow">50 / 50</p>
-            <h3>Has descubierto las 50 cosas... ✨</h3>
-            <p>Y esta lista, en realidad, nunca termina de verdad.</p>
-          `);
-        }, 900);
-      }
+      let nextIndex = reasons.findIndex((_, i) => !state.revealedReasons.includes(i));
+      if (nextIndex === -1) nextIndex = 0;
+      revealReason(nextIndex);
     });
   }
 
@@ -756,7 +845,11 @@ const secrets = [
       const li = document.createElement("li");
       li.innerHTML = `
         <button type="button" class="song-item" data-index="${i}">
-          <span class="song-item__cover" aria-hidden="true">🎵</span>
+          <span class="song-item__cover" aria-hidden="true">
+            <img src="assets/images/songs/${song.cover}" alt=""
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <span class="song-item__cover-emoji">🎵</span>
+          </span>
           <span class="song-item__meta">
             <span class="song-item__title">${song.title}</span><br>
             <span class="song-item__artist">${song.artist}</span>
@@ -772,7 +865,11 @@ const secrets = [
       titleEl.textContent = song.title;
       artistEl.textContent = song.artist;
       descEl.textContent = song.description;
-      coverEl.textContent = "🎵";
+      coverEl.innerHTML = `
+        <img src="assets/images/songs/${song.cover}" alt="Portada de ${song.title}"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span class="player__cover-emoji" style="display:none;">🎵</span>
+      `;
       progressFill.style.width = "0%";
       audio.pause();
       audio.setAttribute("src", `assets/audio/${song.audio}`);
@@ -916,6 +1013,8 @@ const secrets = [
      INICIALIZACION GENERAL
   ------------------------------------------------------------------ */
   function init() {
+    initLockScreen();
+    initResetButton();
     document.body.classList.add("no-scroll");
     spawnFloatingHearts();
 

@@ -135,6 +135,91 @@ body.no-scroll { overflow: hidden; height: 100vh; }
 .pixel-btn-small { font-size: 0.8rem; padding: 0.6em 0.9em; }
 
 /* --------------------------------------------------------------------------
+   3B. PANTALLA DE ACCESO CON CONTRASEÑA
+-------------------------------------------------------------------------- */
+.lock-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background:
+    radial-gradient(ellipse at 70% 80%, rgba(216,201,240,0.3), transparent 55%),
+    linear-gradient(180deg, var(--color-night-deep) 0%, var(--color-night) 100%);
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+.lock-screen.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.lock-panel {
+  position: relative;
+  z-index: 2;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  background: var(--color-paper);
+}
+.lock-icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
+.lock-title { font-family: var(--font-pixel); font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--color-brown); }
+.lock-subtitle { font-size: 0.9rem; color: var(--color-brown-soft); margin-bottom: 1.25rem; }
+
+.lock-form { display: flex; flex-direction: column; gap: 0.75rem; }
+.lock-input {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.7em 0.9em;
+  border: 3px solid var(--color-brown);
+  background: var(--color-cream);
+  color: var(--color-brown);
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+.lock-input:focus-visible { outline: 3px solid var(--color-pink-deep); outline-offset: 2px; }
+
+.lock-error { margin-top: 0.9rem; font-size: 0.85rem; color: var(--color-pink-deep); font-weight: 700; }
+
+.lock-screen.shake .lock-panel { animation: shake 0.4s ease; }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+/* --------------------------------------------------------------------------
+   3C. BOTON DE REINICIO
+-------------------------------------------------------------------------- */
+.reset-progress-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 500;
+  width: 2.3rem;
+  height: 2.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-night);
+  color: var(--color-cream);
+  border: 2px solid var(--color-brown);
+  font-size: 1.1rem;
+  opacity: 0.4;
+  transition: opacity 0.2s ease, transform 0.3s ease;
+}
+.reset-progress-btn:hover,
+.reset-progress-btn:focus-visible {
+  opacity: 1;
+  transform: rotate(-50deg);
+}
+.reset-progress-btn:focus-visible { outline: 3px solid var(--color-pink-deep); outline-offset: 3px; }
+
+@media (max-width: 640px) {
+  .reset-progress-btn { width: 2rem; height: 2rem; font-size: 1rem; opacity: 0.55; }
+}
+
+/* --------------------------------------------------------------------------
    4. PANTALLA DE INTRODUCCION
 -------------------------------------------------------------------------- */
 .intro-screen {
@@ -544,28 +629,43 @@ body.no-scroll { overflow: hidden; height: 100vh; }
   margin: 0.9rem 0 1.4rem;
 }
 
-.reason-card {
-  max-width: 420px;
-  width: 100%;
-  text-align: center;
-  animation: popIn 0.35s ease;
-}
-@keyframes popIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-.reason-card__number { font-family: var(--font-pixel); color: var(--color-pink-deep); margin-bottom: 0.5rem; }
-.reason-card__text { font-size: 1.15rem; font-weight: 700; }
-
-.reason-log {
+.reason-grid-hint {
+  font-size: 0.85rem;
+  color: var(--color-brown-soft);
   margin-top: 1.75rem;
-  display: flex; flex-wrap: wrap; gap: 0.4rem;
-  justify-content: center;
-  max-width: 560px;
+  margin-bottom: 0.75rem;
 }
-.reason-log__chip {
+
+@keyframes popIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(2.6rem, 1fr));
+  gap: 0.4rem;
+  max-width: 560px;
+  width: 100%;
+}
+
+.reason-grid__btn {
   font-family: var(--font-pixel);
-  font-size: 0.6rem;
+  font-size: 0.65rem;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--color-white);
   border: 2px solid var(--color-brown);
-  padding: 0.3rem 0.5rem;
+  color: var(--color-brown-soft);
+  opacity: 0.55;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.reason-grid__btn:hover { transform: translateY(-2px); opacity: 1; }
+.reason-grid__btn:focus-visible { outline: 2px solid var(--color-pink-deep); outline-offset: 2px; }
+.reason-grid__btn.is-revealed {
+  background: var(--color-pink-strong);
+  color: var(--color-white);
+  opacity: 1;
 }
 
 /* --------------------------------------------------------------------------
@@ -590,6 +690,7 @@ body.no-scroll { overflow: hidden; height: 100vh; }
   overflow: hidden;
 }
 .player__cover img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+.player__cover-emoji { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; }
 .player__info { min-width: 0; flex: 1; }
 .player__title { font-weight: 800; font-size: 0.95rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .player__artist { font-size: 0.8rem; opacity: 0.75; }
@@ -618,7 +719,9 @@ body.no-scroll { overflow: hidden; height: 100vh; }
 }
 .song-item:hover { transform: translateX(3px); }
 .song-item.is-active { border-color: var(--color-pink-deep); background: var(--color-pink-soft); }
-.song-item__cover { width: 34px; height: 34px; flex: none; display:flex; align-items:center; justify-content:center; background: var(--color-lavender); font-size: 1rem; }
+.song-item__cover { position: relative; width: 34px; height: 34px; flex: none; display:flex; align-items:center; justify-content:center; background: var(--color-lavender); font-size: 1rem; overflow: hidden; }
+.song-item__cover img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; }
+.song-item__cover-emoji { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; }
 .song-item__meta { min-width: 0; }
 .song-item__title { font-weight: 700; font-size: 0.9rem; }
 .song-item__artist { font-size: 0.75rem; color: var(--color-brown-soft); }
