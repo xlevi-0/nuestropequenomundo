@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Nuestro Pequeño Mundo ♡</title>
+<meta name="description" content="Un pequeño mundo hecho solamente para nosotros.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     REGION EN VIVO PARA LECTORES DE PANTALLA (logros / secretos)
+============================================================ -->
+<div id="aria-live" class="sr-only" aria-live="polite"></div>
+
+<!-- ============================================================
+     PANTALLA DE ACCESO CON CONTRASEÑA
+     (se elimina automáticamente si ACCESS_CODE está vacío en script.js)
+============================================================ -->
+<section id="lock-screen" class="lock-screen">
+  <div class="stars-layer" aria-hidden="true"></div>
+  <div class="lock-panel pixel-panel">
+    <p class="lock-icon" aria-hidden="true">🔒</p>
+    <h1 class="lock-title">Acceso privado</h1>
+    <p class="lock-subtitle">Introduce la contraseña para entrar en nuestro mundo.</p>
+    <form id="lock-form" class="lock-form" autocomplete="off">
+      <label for="lock-input" class="sr-only">Contraseña</label>
+      <input type="password" id="lock-input" class="lock-input pixel-corners"
+             placeholder="Contraseña" autocomplete="off" required>
+      <button type="submit" class="pixel-btn pixel-btn-primary">Entrar ❤️</button>
+    </form>
+    <p class="lock-error" id="lock-error" role="alert" hidden>Contraseña incorrecta. Inténtalo de nuevo ♡</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     PANTALLA DE INTRODUCCION / PORTADA
+============================================================ -->
+<section id="intro-screen" class="intro-screen">
+  <div class="stars-layer" aria-hidden="true"></div>
+  <div class="floating-hearts" aria-hidden="true"></div>
+  <div class="clouds-layer" aria-hidden="true">
+    <span class="pixel-cloud cloud-1"></span>
+    <span class="pixel-cloud cloud-2"></span>
+  </div>
+
+  <div class="intro-content">
+    <p class="intro-eyebrow">✦ ✧ ✦</p>
+    <h1 class="intro-title" id="secret-logo">♡ NUESTRO PEQUEÑO MUNDO ♡</h1>
+    <p class="intro-subtitle">Un pequeño lugar hecho solamente para nosotros.</p>
+
+    <div class="intro-characters">
+      <img src="assets/images/characters/couple-together.png"
+           alt="Nosotros dos, dibujados en pixel-art, uno al lado del otro"
+           class="intro-couple-img"
+           onerror="this.classList.add('img-fallback')">
+    </div>
+
+    <button type="button" id="enter-button" class="pixel-btn pixel-btn-primary intro-enter-btn">
+      ENTRAR <span aria-hidden="true">❤️</span>
+    </button>
+  </div>
+
+  <div class="intro-screen__grain" aria-hidden="true"></div>
+</section>
+
+<!-- ============================================================
+     TRANSICION TIPO VIDEOJUEGO (cortina de pixeles)
+============================================================ -->
+<div id="transition-curtain" class="transition-curtain" aria-hidden="true">
+  <div class="transition-grid">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<!-- ============================================================
+     NAVEGACION TIPO CONSOLA (aparece tras pulsar ENTRAR)
+============================================================ -->
+<nav id="game-nav" class="game-nav" aria-label="Navegación del mundo">
+  <div class="game-nav__inner">
+    <button class="nav-btn" data-target="inicio" title="Inicio"><span class="nav-icon">🏠</span><span class="nav-label">Inicio</span></button>
+    <button class="nav-btn" data-target="historia" title="Nuestra historia"><span class="nav-icon">📖</span><span class="nav-label">Historia</span></button>
+    <button class="nav-btn" data-target="recuerdos" title="Recuerdos"><span class="nav-icon">🗺️</span><span class="nav-label">Recuerdos</span></button>
+    <button class="nav-btn" data-target="cartas" title="Cartas"><span class="nav-icon">💌</span><span class="nav-label">Cartas</span></button>
+    <button class="nav-btn" data-target="amo" title="Cosas que amo de ti"><span class="nav-icon">💕</span><span class="nav-label">Te amo</span></button>
+    <button class="nav-btn" data-target="canciones" title="Nuestras canciones"><span class="nav-icon">🎵</span><span class="nav-label">Música</span></button>
+    <button class="nav-btn" data-target="futuro" title="Nuestro futuro"><span class="nav-icon">🌌</span><span class="nav-label">Futuro</span></button>
+    <button class="nav-btn" data-target="logros" title="Logros"><span class="nav-icon">🏆</span><span class="nav-label">Logros</span></button>
+    <button class="nav-btn" data-target="secretos" title="Secretos"><span class="nav-icon">🔍</span><span class="nav-label">Secretos</span></button>
+    <button class="nav-btn" data-target="final" title="Final"><span class="nav-icon">✨</span><span class="nav-label">Final</span></button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     CONTENIDO PRINCIPAL
+============================================================ -->
+<main id="main-content" class="main-content" aria-hidden="true">
+
+  <!-- 1. INICIO (recapitulación dentro del scroll) -->
+  <section id="inicio" class="section section--night" data-section>
+    <div class="stars-layer stars-layer--section" aria-hidden="true"></div>
+    <div class="section-inner section-inner--center">
+      <p class="section-kicker">Capítulo 01</p>
+      <h2 class="section-title section-title--light">Bienvenida a nuestro mundo</h2>
+      <p class="section-lead section-lead--light" id="welcome-text">
+        Cargando nombres...
+      </p>
+      <p class="section-lead section-lead--light section-lead--small" id="days-together-text"></p>
+      <div class="scroll-hint" aria-hidden="true">
+        <span>desliza para explorar</span>
+        <span class="scroll-hint__arrow">▾</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. NUESTRA HISTORIA -->
+  <section id="historia" class="section section--cream" data-section>
+    <div class="section-inner">
+      <p class="section-kicker">Capítulo 02</p>
+      <h2 class="section-title">Nuestra historia</h2>
+      <p class="section-lead">Cada recuerdo aquí abajo se puede abrir. Tócalo para revivirlo.</p>
+
+      <div class="timeline" id="timeline-list" role="list"></div>
+    </div>
+  </section>
+
+  <!-- 3. NUESTROS RECUERDOS (mapa) -->
+  <section id="recuerdos" class="section section--green" data-section>
+    <div class="section-inner">
+      <p class="section-kicker">Capítulo 03</p>
+      <h2 class="section-title">Nuestros recuerdos</h2>
+      <p class="section-lead">Un pequeño mapa de nuestro mundo. Explora cada rincón.</p>
+
+      <div class="memory-map" id="memory-map">
+        <div class="memory-map__path" aria-hidden="true"></div>
+        <!-- pines de recuerdos insertados por JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CARTAS -->
+  <section id="cartas" class="section section--pink" data-section>
+    <div class="section-inner">
+      <p class="section-kicker">Capítulo 04</p>
+      <h2 class="section-title">Cartas para ti</h2>
+      <p class="section-lead">Ábrelas cuando las necesites.</p>
+
+      <div class="letters-grid" id="letters-grid"></div>
+
+      <!-- secreto escondido: un gatito pixel en la esquina -->
+      <button class="secret-trigger secret-cat" data-secret="hidden-cat" aria-label="???">
+        <span aria-hidden="true">🐈</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 5. COSAS QUE AMO DE TI -->
+  <section id="amo" class="section section--lavender" data-section>
+    <div class="section-inner section-inner--center">
+      <p class="section-kicker">Capítulo 05</p>
+      <h2 class="section-title">50 cosas que amo de ti</h2>
+      <p class="section-lead">Un corazón, una razón cada vez.</p>
+
+      <button type="button" id="reveal-heart-btn" class="pixel-heart-btn">
+        <span class="pixel-heart-btn__icon">♡</span>
+        <span class="pixel-heart-btn__label">DESCUBRIR</span>
+      </button>
+
+      <div class="reason-counter" id="reason-counter">0 / 50 descubiertas</div>
+
+      <div class="reason-card pixel-panel" id="reason-card" hidden>
+        <p class="reason-card__number" id="reason-number">❤️ #01</p>
+        <p class="reason-card__text" id="reason-text"></p>
+      </div>
+
+      <p class="reason-log__hint" id="reason-log-hint" hidden>Toca un número para volver a leerlo</p>
+      <div class="reason-log" id="reason-log" aria-label="Razones descubiertas"></div>
+    </div>
+  </section>
+
+  <!-- 6. NUESTRAS CANCIONES -->
+  <section id="canciones" class="section section--cream" data-section>
+    <div class="section-inner">
+      <p class="section-kicker">Capítulo 06</p>
+      <h2 class="section-title">Nuestras canciones</h2>
+      <p class="section-lead">La banda sonora de nosotros dos.</p>
+
+      <div class="player pixel-panel">
+        <div class="player__screen">
+          <div class="player__cover" id="player-cover">🎶</div>
+          <div class="player__info">
+            <p class="player__title" id="player-title">Selecciona una canción</p>
+            <p class="player__artist" id="player-artist">—</p>
+            <div class="player__eq" id="player-eq" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+        <div class="player__progress-track">
+          <div class="player__progress-fill" id="player-progress"></div>
+        </div>
+        <div class="player__controls">
+          <button class="pixel-btn pixel-btn-small" id="player-prev" aria-label="Canción anterior">⏮</button>
+          <button class="pixel-btn pixel-btn-small pixel-btn-primary" id="player-play" aria-label="Reproducir">▶</button>
+          <button class="pixel-btn pixel-btn-small" id="player-next" aria-label="Canción siguiente">⏭</button>
+        </div>
+        <p class="player__description" id="player-description">Elige una canción de la lista para leer por qué es especial.</p>
+        <audio id="player-audio" preload="none"></audio>
+      </div>
+
+      <ul class="song-list" id="song-list"></ul>
+    </div>
+  </section>
+
+  <!-- 7. NUESTRO FUTURO -->
+  <section id="futuro" class="section section--night" data-section>
+    <div class="stars-layer stars-layer--section" aria-hidden="true"></div>
+    <div class="section-inner">
+      <p class="section-kicker section-kicker--light">Capítulo 07</p>
+      <h2 class="section-title section-title--light">Nuestro futuro</h2>
+      <p class="section-lead section-lead--light">Toca cada estrella para descubrir un deseo.</p>
+
+      <div class="future-sky" id="future-sky">
+        <button class="future-star future-star--big" id="future-star-big" aria-label="Estrella especial">
+          <span aria-hidden="true">✦</span>
+        </button>
+        <!-- estrellas normales insertadas por JS -->
+        <!-- estrella secreta invisible insertada por JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. LOGROS -->
+  <section id="logros" class="section section--cream" data-section>
+    <div class="section-inner">
+      <p class="section-kicker">Capítulo 08</p>
+      <h2 class="section-title" id="achievements-title">Logros</h2>
+      <p class="section-lead">Cada paso de nuestro camino, guardado para siempre.</p>
+
+      <div class="achievements-grid" id="achievements-grid"></div>
+    </div>
+  </section>
+
+  <!-- 9. SECRETOS -->
+  <section id="secretos" class="section section--lavender" data-section>
+    <div class="section-inner section-inner--center">
+      <p class="section-kicker">Capítulo 09</p>
+      <h2 class="section-title">Secretos</h2>
+      <p class="section-lead">Hay cosas escondidas por todo nuestro mundo. ¿Las has encontrado todas?</p>
+
+      <div class="secrets-counter pixel-panel" id="secrets-counter">
+        SECRETOS DESCUBIERTOS: <span id="secrets-count">0</span>/5
+      </div>
+
+      <div class="secrets-slots" id="secrets-slots"></div>
+
+      <p class="secrets-complete-msg" id="secrets-complete-msg" hidden>
+        ✨ HAS DESCUBIERTO TODOS NUESTROS SECRETOS ✨
+      </p>
+    </div>
+  </section>
+
+  <!-- 10. FINAL -->
+  <section id="final" class="section section--night section--final" data-section>
+    <div class="stars-layer stars-layer--section" aria-hidden="true"></div>
+    <div class="section-inner section-inner--center">
+      <div class="final-characters">
+        <img src="assets/images/characters/couple-kiss.png"
+             alt="Nosotros dos dándonos un beso, en pixel-art"
+             class="final-couple-img"
+             onerror="this.classList.add('img-fallback')">
+      </div>
+
+      <div class="final-text" id="final-text" aria-live="polite"></div>
+
+      <button type="button" id="final-continue-btn" class="pixel-btn pixel-btn-primary" hidden>
+        ♡ ¿EMPEZAMOS EL AÑO 2? ♡
+      </button>
+
+      <div class="final-message" id="final-message" hidden>
+        <p class="final-message__main">Te quiero.</p>
+        <p class="final-message__sub">Gracias por este primer año.</p>
+      </div>
+
+      <footer class="site-footer">
+        <button class="secret-trigger secret-heart" data-secret="footer-heart" aria-label="???">♡</button>
+        <p>hecho con amor, un pixel a la vez</p>
+      </footer>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     MODAL GENERICO (recuerdos, cartas, etc.)
+============================================================ -->
+<div id="modal-overlay" class="modal-overlay" hidden>
+  <div class="modal pixel-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button type="button" class="modal-close" id="modal-close" aria-label="Cerrar">✕</button>
+    <div id="modal-body" class="modal-body"></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     CONTENEDOR DE NOTIFICACIONES (logros / secretos)
+============================================================ -->
+<div id="toast-container" class="toast-container" aria-hidden="true"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
