@@ -20,26 +20,6 @@
 <div id="aria-live" class="sr-only" aria-live="polite"></div>
 
 <!-- ============================================================
-     PANTALLA DE ACCESO CON CONTRASEÑA
-     (se elimina automáticamente si ACCESS_CODE está vacío en script.js)
-============================================================ -->
-<section id="lock-screen" class="lock-screen">
-  <div class="stars-layer" aria-hidden="true"></div>
-  <div class="lock-panel pixel-panel">
-    <p class="lock-icon" aria-hidden="true">🔒</p>
-    <h1 class="lock-title">Acceso privado</h1>
-    <p class="lock-subtitle">Introduce la contraseña para entrar en nuestro mundo.</p>
-    <form id="lock-form" class="lock-form" autocomplete="off">
-      <label for="lock-input" class="sr-only">Contraseña</label>
-      <input type="password" id="lock-input" class="lock-input pixel-corners"
-             placeholder="Contraseña" autocomplete="off" required>
-      <button type="submit" class="pixel-btn pixel-btn-primary">Entrar ❤️</button>
-    </form>
-    <p class="lock-error" id="lock-error" role="alert" hidden>Contraseña incorrecta. Inténtalo de nuevo ♡</p>
-  </div>
-</section>
-
-<!-- ============================================================
      PANTALLA DE INTRODUCCION / PORTADA
 ============================================================ -->
 <section id="intro-screen" class="intro-screen">
@@ -180,7 +160,6 @@
         <p class="reason-card__text" id="reason-text"></p>
       </div>
 
-      <p class="reason-log__hint" id="reason-log-hint" hidden>Toca un número para volver a leerlo</p>
       <div class="reason-log" id="reason-log" aria-label="Razones descubiertas"></div>
     </div>
   </section>
@@ -190,7 +169,7 @@
     <div class="section-inner">
       <p class="section-kicker">Capítulo 06</p>
       <h2 class="section-title">Nuestras canciones</h2>
-      <p class="section-lead">La banda sonora de nosotros dos.</p>
+      <p class="section-lead">Las canciones que nos recuerdan el uno al otro</p>
 
       <div class="player pixel-panel">
         <div class="player__screen">

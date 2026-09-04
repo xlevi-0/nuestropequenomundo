@@ -73,42 +73,13 @@ Ahí encontrarás, en este orden:
 
 Solo tienes que sustituir los textos entre comillas `"..."`. No hace falta tocar nada más del archivo.
 
-## 6. Cómo añadir vuestras canciones y sus portadas (opcional)
+## 6. Cómo añadir vuestras canciones (opcional)
 
-1. **Audio:** coloca tus archivos mp3 dentro de `assets/audio/`. En el array `songs` de `script.js`,
-   pon el nombre exacto del archivo en el campo `audio`, por ejemplo `"audio": "song-1.mp3"`.
-2. **Portada:** coloca la imagen dentro de `assets/images/songs/` (esta carpeta ya existe en el proyecto).
-   En el campo `cover` de esa misma canción pon solo el nombre del archivo, por ejemplo `"cover": "song-1.jpg"`.
-   **Importante:** en `cover` va únicamente el nombre del archivo, nunca una ruta completa
-   (nada de `C:\Usuarios\...` ni `assets/images/songs/song-1.jpg`, solo `"song-1.jpg"`).
-3. Si no añades audio o portada, el reproductor sigue funcionando igual: sin portada muestra un
-   emoji 🎵, y sin audio solo avisa con un mensaje al pulsar play (no da ningún error).
+1. Coloca tus archivos de audio (mp3) dentro de `assets/audio/`.
+2. En el array `songs` de `script.js`, pon el nombre exacto del archivo en el campo `audio`, por ejemplo `"audio": "song-1.mp3"`.
+3. Si no añades ningún archivo, el reproductor se ve igualmente pero no sonará nada al pulsar play (no da error, solo avisa).
 
 No se ha incluido ninguna canción con derechos de autor dentro del proyecto.
-
-## 6B. Contraseña de acceso
-
-La web puede pedir una contraseña antes de mostrar nada. Se configura en `script.js`, justo antes de
-`relationshipData`:
-
-```js
-const ACCESS_CODE = "teamo";
-```
-
-- Cambia `"teamo"` por la contraseña que quieras que use tu novia.
-- Si quieres que la web se abra sin pedir nada, deja las comillas vacías: `const ACCESS_CODE = "";`
-- No distingue mayúsculas de minúsculas, así que `"TeAmo"` también seria válida si la contraseña es `"teamo"`.
-- Una vez se introduce bien, el navegador la recuerda (no la vuelve a pedir en ese mismo dispositivo).
-- Ten en cuenta que esto es una protección sencilla pensada para un regalo personal, no una
-  contraseña de verdad segura: cualquiera que abra el código fuente del archivo podría verla.
-
-## 6C. Volver a leer las 50 razones y las cartas
-
-- **Cartas:** puedes pulsar sobre un sobre ya abierto (verás la marca "abierta ✓") tantas veces
-  como quieras y siempre te volverá a mostrar la carta completa.
-- **50 cosas que amo de ti:** cada razón descubierta se queda guardada como un pequeño botón con su
-  número (por ejemplo `#07`) debajo del corazón. Pulsa cualquiera de esos números para volver a leer
-  esa razón exacta, sin tener que descubrirlas todas otra vez.
 
 ## 7. Los secretos escondidos
 
